@@ -4,7 +4,7 @@
  *  Created on: Jan 12, 2024
  *      Author: chris
  */
-
+//
 #include <stdio.h>
 
 #define GPIODATA_F (*((volatile unsigned long *) 0x40025010)) // PF starts at 0x40025000 and our bit masking code is 0x010
@@ -26,6 +26,7 @@
 void delay()
 {
     volatile unsigned long i;
+    //TM4C123GXL
     for (i = 0; i < 4000000; i++);
 }
 
