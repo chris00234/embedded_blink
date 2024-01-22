@@ -1,10 +1,3 @@
-/*
- * main.c
- *
- *  Created on: Jan 12, 2024
- *      Author: chris
- */
-//
 #include <stdio.h>
 
 #define GPIODATA_F (*((volatile unsigned long *) 0x40025010)) // PF starts at 0x40025000 and our bit masking code is 0x010
@@ -31,9 +24,12 @@ void delay()
 }
 
 int main(void){
-    RCGCGPIO |= GPIO_PORTF_CLK_EN; // Enable clock for PORTF
-    GPIODEN |= GPIO_PORTF_PIN2_EN; // Enable pin 2 on PORTF
-    GPIODIR |= GPIO_PORTF_PIN2_EN; // Set pin 2 as an output
+    // Enable clock for PORTF
+    RCGCGPIO |= GPIO_PORTF_CLK_EN; 
+    // Enable pin 2 on PORTF
+    GPIODEN |= GPIO_PORTF_PIN2_EN; 
+    // Set pin 2 as an output
+    GPIODIR |= GPIO_PORTF_PIN2_EN; 
 
     while(1){
         GPIODATA_F = 0x04;
